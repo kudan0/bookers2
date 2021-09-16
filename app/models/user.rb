@@ -3,6 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
+
   has_many :books, dependent: :destroy
+
+  # 画像投稿用メゾット
+  attachment :profile_image
 end

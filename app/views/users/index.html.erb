@@ -1,3 +1,15 @@
+<!--エラーメッセージ-->
+  <% if @book.errors.any? %>
+    <div class="error_explanation">
+      <h3><%= @book.errors.count %>errors prohibited this book from being saved:</h3>
+        <% @book.errors.full_messages.each do |message| %>
+          <ul>
+            <li><%= message %></li>
+          </ul>
+        <% end %>
+    </div>
+  <% end %>
+
 <div class="container px-5 px-sm-0">
   <div class="row">
 <!--テンプレここから-->
@@ -17,8 +29,8 @@
           <% @users.each do |user| %>
           <tr>
             <td><%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %></td>
-            <td><%= @user.name %></td>
-            <td><%= link_to 'show', user_path(@user.id) %></td>
+            <td><%= user.name %></td>
+            <td><%= link_to 'show', user_path(user.id) %></td>
           </tr>
           <% end %>
         </tbody>

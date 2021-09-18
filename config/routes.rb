@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   resources :books
 
   post 'users/:id' => 'users#show'
+  post 'books/:id' => 'books#show'
 
 end
